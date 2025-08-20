@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Task Details - FlowTask
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="task_details.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="app-container">
+   <header class="top-nav">
+    <div class="logo-container">
+     <img alt="FlowTask Logo" class="logo" src="https://data-smith.ai/wp-content/uploads/2025/01/logo_transparent_background.png"/>
+     <h3>
+      FlowTask
+     </h3>
+    </div>
+    <div class="user-profile">
+     <img alt="User Avatar" class="avatar" src="https://picsum.photos/id/40/200/200"/>
+     <span class="username">
+      Alex Green
+     </span>
+     <button class="btn btn-outline-primary btn-sm">
+      <i class="fas fa-sign-out-alt">
+      </i>
+     </button>
+    </div>
+   </header>
+   <aside class="sidebar">
+    <nav class="nav-group">
+     <h4>
+      MENU
+     </h4>
+     <ul class="nav-list">
+      <li class="nav-item">
+       <a class="nav-link" href="./dashboard_page.html">
+        <i class="fas fa-table-columns">
+        </i>
+        <span>
+         Dashboard
+        </span>
+       </a>
+      </li>
+      <li class="nav-item active">
+       <a class="nav-link" href="./task_list.html">
+        <i class="fas fa-list-check">
+        </i>
+        <span>
+         Tasks
+        </span>
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="./create_task.html">
+        <i class="fas fa-plus">
+        </i>
+        <span>
+         Create Task
+        </span>
+       </a>
+      </li>
+     </ul>
+    </nav>
+    <nav class="nav-group mt-auto">
+     <h4 class="text-muted">
+      ACCOUNT
+     </h4>
+     <ul class="nav-list">
+      <li class="nav-item">
+       <a class="nav-link" href="./login_page.html">
+        <i class="fas fa-sign-out-alt">
+        </i>
+        <span>
+         Logout
+        </span>
+       </a>
+      </li>
+     </ul>
+    </nav>
+   </aside>
+   <main class="main-content fade-in">
+    <nav aria-label="breadcrumb">
+     <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+       <a href="./dashboard_page.html">
+        Home
+       </a>
+      </li>
+      <li class="breadcrumb-item">
+       <a href="./task_list.html">
+        Tasks
+       </a>
+      </li>
+      <li aria-current="page" class="breadcrumb-item active">
+       Task Details
+      </li>
+     </ol>
+    </nav>
+    <div class="task-header">
+     <div class="task-title-group">
+      <h1>
+       Implement User Authentication
+      </h1>
+      <span class="text-muted">
+       #FLW-421
+      </span>
+     </div>
+     <div class="task-action-buttons">
+      <a class="btn btn-outline-primary" href="./create_task.html">
+       <i class="fas fa-pen-to-square me-2">
+       </i>
+       Edit
+      </a>
+      <button class="btn btn-outline-danger" id="deleteTaskBtn">
+       <i class="fas fa-trash me-2">
+       </i>
+       Delete
+      </button>
+     </div>
+    </div>
+    <div class="row mt-4">
+     <div class="col-lg-8">
+      <div class="card mb-4">
+       <div class="card-body">
+        <h5 class="card-title">
+         Task Description
+        </h5>
+        <p>
+         Develop a complete user authentication flow including registration, login, and password reset functionalities. The system must securely handle user credentials by hashing passwords and implementing session management using JWT (JSON Web Tokens). Ensure all backend endpoints related to user data are protected and require a valid token.
+        </p>
+       </div>
+      </div>
+      <div class="card mb-4">
+       <div class="card-header">
+        <h5>
+         <i class="fas fa-paperclip me-2">
+         </i>
+         Attachments
+        </h5>
+       </div>
+       <div class="card-body">
+        <div class="attachment-uploader mb-3">
+         <i class="fas fa-cloud-arrow-up fa-2x text-muted">
+         </i>
+         <p>
+          Drag &amp; drop files here or
+          <a>
+           browse
+          </a>
+         </p>
+         <input class="d-none" type="file"/>
+        </div>
+        <ul class="list-group list-group-flush">
+         <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+           <i class="far fa-file-pdf text-danger me-2">
+           </i>
+           <span>
+            API_Endpoints_v1.pdf
+           </span>
+           <small class="d-block text-muted">
+            1.2 MB
+           </small>
+          </div>
+          <div>
+           <a class="btn btn-sm btn-outline-secondary me-1" href="#" title="Download">
+            <i class="fas fa-download">
+            </i>
+           </a>
+           <a class="btn btn-sm btn-outline-danger" href="#" title="Delete">
+            <i class="fas fa-trash-can">
+            </i>
+           </a>
+          </div>
+         </li>
+         <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+           <i class="far fa-file-word text-primary me-2">
+           </i>
+           <span>
+            Technical_Spec_Auth.docx
+           </span>
+           <small class="d-block text-muted">
+            450 KB
+           </small>
+          </div>
+          <div>
+           <a class="btn btn-sm btn-outline-secondary me-1" href="#" title="Download">
+            <i class="fas fa-download">
+            </i>
+           </a>
+           <a class="btn btn-sm btn-outline-danger" href="#" title="Delete">
+            <i class="fas fa-trash-can">
+            </i>
+           </a>
+          </div>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="card">
+       <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" id="collabHubTab" role="tablist">
+         <li class="nav-item" role="presentation">
+          <button aria-controls="comments-panel" aria-selected="true" class="nav-link active" data-bs-target="#comments-panel" data-bs-toggle="tab" id="comments-tab" role="tab" type="button">
+           Comments (3)
+          </button>
+         </li>
+         <li class="nav-item" role="presentation">
+          <button aria-controls="activity-panel" aria-selected="false" class="nav-link" data-bs-target="#activity-panel" data-bs-toggle="tab" id="activity-tab" role="tab" type="button">
+           Activity Log
+          </button>
+         </li>
+        </ul>
+       </div>
+       <div class="card-body">
+        <div class="tab-content" id="collabHubTabContent">
+         <div aria-labelledby="comments-tab" class="tab-pane fade show active" id="comments-panel" role="tabpanel">
+          <div class="comments-section">
+           <div class="comment-item">
+            <img alt="avatar" class="comment-avatar" onerror="this.onerror=null; this.src='https://picsum.photos/seed/user1/100/100';" src="https://picsum.photos/id/1027/100/100"/>
+            <div class="comment-content">
+             <div class="comment-header">
+              <strong>
+               Sarah Connor
+              </strong>
+              <span class="text-muted ms-2">
+               2 days ago
+              </span>
+             </div>
+             <p>
+              Just a heads up, the JWT library we decided on has a new major version. Should we upgrade or stick with the current one for stability?
+             </p>
+            </div>
+           </div>
+           <div class="comment-item">
+            <img alt="avatar" class="comment-avatar" onerror="this.onerror=null; this.src='https://picsum.photos/seed/user2/100/100';" src="https://picsum.photos/id/40/100/100"/>
+            <div class="comment-content">
+             <div class="comment-header">
+              <strong>
+               Alex Green
+              </strong>
+              <span class="text-muted ms-2">
+               2 days ago
+              </span>
+             </div>
+             <p>
+              Good catch, @Sarah. Let's stick with the current version to avoid any unexpected breaking changes. We can schedule the upgrade for the next sprint.
+             </p>
+            </div>
+           </div>
+           <div class="comment-item">
+            <img alt="avatar" class="comment-avatar" onerror="this.onerror=null; this.src='https://picsum.photos/seed/user1/100/100';" src="https://picsum.photos/id/1027/100/100"/>
+            <div class="comment-content">
+             <div class="comment-header">
+              <strong>
+               Sarah Connor
+              </strong>
+              <span class="text-muted ms-2">
+               1 day ago
+              </span>
+             </div>
+             <p>
+              Sounds good. I've updated the spec document to reflect this decision.
+             </p>
+            </div>
+           </div>
+          </div>
+          <form class="add-comment-form mt-4">
+           <textarea class="form-control" placeholder="Add a comment..." rows="3"></textarea>
+           <div class="d-flex justify-content-end mt-2">
+            <button class="btn btn-primary" type="submit">
+             Submit
+            </button>
+           </div>
+          </form>
+         </div>
+         <div aria-labelledby="activity-tab" class="tab-pane fade" id="activity-panel" role="tabpanel" style="background-image: url('assets/illustration_for_activity_log__2_1c6b4915.png'); background-position: bottom right; background-repeat: no-repeat; background-size: 150px;">
+          <ul class="activity-timeline">
+           <li class="activity-item">
+            <div class="activity-icon bg-info">
+             <i class="fas fa-pen">
+             </i>
+            </div>
+            <div class="activity-body">
+             <strong>
+              Alex Green
+             </strong>
+             updated the due date to
+             <strong>
+              2025-08-10
+             </strong>
+             .
+             <span class="text-muted d-block">
+              1 hour ago
+             </span>
+            </div>
+           </li>
+           <li class="activity-item">
+            <div class="activity-icon bg-primary">
+             <i class="fas fa-arrow-right">
+             </i>
+            </div>
+            <div class="activity-body">
+             Status changed from
+             <strong>
+              Assigned
+             </strong>
+             to
+             <strong>
+              In Progress
+             </strong>
+             by
+             <strong>
+              Jane Doe
+             </strong>
+             .
+             <span class="text-muted d-block">
+              1 day ago
+             </span>
+            </div>
+           </li>
+           <li class="activity-item">
+            <div class="activity-icon bg-success">
+             <i class="fas fa-paperclip">
+             </i>
+            </div>
+            <div class="activity-body">
+             <strong>
+              Sarah Connor
+             </strong>
+             attached
+             <strong>
+              Technical_Spec_Auth.docx
+             </strong>
+             .
+             <span class="text-muted d-block">
+              2 days ago
+             </span>
+            </div>
+           </li>
+           <li class="activity-item">
+            <div class="activity-icon bg-secondary">
+             <i class="fas fa-user-plus">
+             </i>
+            </div>
+            <div class="activity-body">
+             Task assigned to
+             <strong>
+              Jane Doe
+             </strong>
+             by
+             <strong>
+              Alex Green
+             </strong>
+             .
+             <span class="text-muted d-block">
+              4 days ago
+             </span>
+            </div>
+           </li>
+           <li class="activity-item">
+            <div class="activity-icon bg-warning">
+             <i class="fas fa-plus">
+             </i>
+            </div>
+            <div class="activity-body">
+             <strong>
+              Alex Green
+             </strong>
+             created the task.
+             <span class="text-muted d-block">
+              4 days ago
+             </span>
+            </div>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="col-lg-4">
+      <div class="card sticky-top" style="top: 80px;">
+       <div class="card-header">
+        <h5>
+         <i class="fas fa-info-circle me-2">
+         </i>
+         Details
+        </h5>
+       </div>
+       <div class="card-body">
+        <div class="form-group mb-3">
+         <label class="form-label fw-bold" for="statusSelector">
+          Status
+         </label>
+         <select class="form-select" id="statusSelector">
+          <option value="assigned">
+           Assigned
+          </option>
+          <option selected="" value="in-progress">
+           In Progress
+          </option>
+          <option value="on-hold">
+           On Hold
+          </option>
+          <option value="completed">
+           Completed
+          </option>
+         </select>
+        </div>
+        <div class="metadata-item">
+         <span class="fw-bold">
+          <i class="fas fa-user me-2 text-muted">
+          </i>
+          Assignee
+         </span>
+         <span>
+          Jane Doe
+         </span>
+        </div>
+        <hr/>
+        <div class="metadata-item">
+         <span class="fw-bold">
+          <i class="fas fa-flag me-2 text-muted">
+          </i>
+          Priority
+         </span>
+         <span class="badge bg-danger">
+          High
+         </span>
+        </div>
+        <hr/>
+        <div class="metadata-item">
+         <span class="fw-bold">
+          <i class="fas fa-calendar-days me-2 text-muted">
+          </i>
+          Due Date
+         </span>
+         <span class="text-danger fw-bold">
+          2025-08-10 (Overdue)
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+   <footer class="info-bar">
+    <div>
+     FlowTask v1.0.0
+    </div>
+    <div>
+     Status: Connected
+    </div>
+   </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <script>
+   document.getElementById('deleteTaskBtn').addEventListener('click', function() {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire('Deleted!', 'The task has been deleted.', 'success').then(() => {
+                window.location.href = './task_list.html';
+            });
+        }
+    });
+});
+  </script>
+ </body>
+</html>

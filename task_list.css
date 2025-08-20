@@ -1,0 +1,85 @@
+body {
+    font-family: 'Poppins', var(--font-sans-serif);
+}
+
+.sidebar {
+    background-color: var(--surface-bg);
+}
+
+.sidebar .nav-link {
+    color: var(--muted-text-color);
+    font-weight: 500;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    border-left: 3px solid transparent;
+}
+
+.sidebar .nav-link .fa-fw {
+    width: 1.25em;
+}
+
+.sidebar .nav-link:hover {
+    color: var(--primary-color);
+    background-color: rgba(0,0,0,0.05);
+}
+
+.sidebar .nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-left-color: var(--primary-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    .sidebar .nav-link:hover {
+        background-color: rgba(255,255,255,0.05);
+    }
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.table-vcenter td, 
+.table-vcenter th {
+    vertical-align: middle;
+}
+
+.priority-high {
+    color: var(--error-color);
+}
+
+.priority-medium {
+    color: var(--warning-color);
+}
+
+.priority-low {
+    color: var(--info-color);
+}
+
+.btn-ghost {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--muted-text-color);
+}
+
+.btn-ghost:hover {
+    background-color: var(--neutral-color);
+    color: var(--body-color);
+}
+
+.table-danger, .table-danger > th, .table-danger > td {
+    --bs-table-bg-state: rgba(220, 53, 69, 0.1);
+    --bs-table-border-color: rgba(220, 53, 69, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    .table-danger, .table-danger > th, .table-danger > td {
+        --bs-table-bg-state: rgba(229, 76, 93, 0.2);
+        --bs-table-border-color: rgba(229, 76, 93, 0.3);
+        --bs-table-color-state: var(--body-color);
+    }
+}

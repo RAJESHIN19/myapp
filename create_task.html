@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Create Task - FlowTask
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="create_task.css" rel="stylesheet"/>
+  <style>
+   :root { --bs-body-font-family: 'Poppins', var(--font-sans-serif); }
+  </style>
+ </head>
+ <body>
+  <div class="app-container">
+   <header class="top-nav">
+    <a class="navbar-brand d-flex align-items-center" href="./dashboard_page.html">
+     <img alt="FlowTask Logo" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/150/30';" src="https://data-smith.ai/wp-content/uploads/2025/01/logo_transparent_background.png" style="height: 30px; margin-right: 10px;"/>
+     <span class="fw-bold">
+      FlowTask
+     </span>
+    </a>
+    <div class="d-flex align-items-center">
+     <div class="dropdown">
+      <button aria-expanded="false" class="btn btn-light btn-sm rounded-circle" data-bs-toggle="dropdown" id="userDropdown" type="button">
+       <i class="fas fa-user">
+       </i>
+      </button>
+      <ul aria-labelledby="userDropdown" class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="#">
+         Profile
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="#">
+         Settings
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./login_page.html">
+         Logout
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </header>
+   <aside class="sidebar">
+    <nav class="nav flex-column">
+     <a class="nav-link" href="./dashboard_page.html">
+      <i class="fas fa-tachometer-alt fa-fw me-2">
+      </i>
+      Dashboard
+     </a>
+     <a class="nav-link" href="./task_list.html">
+      <i class="fas fa-tasks fa-fw me-2">
+      </i>
+      Task List
+     </a>
+     <a class="nav-link active" href="./create_task.html">
+      <i class="fas fa-plus-circle fa-fw me-2">
+      </i>
+      Create Task
+     </a>
+     <a aria-disabled="true" class="nav-link disabled" href="./task_details.html" tabindex="-1">
+      <i class="fas fa-info-circle fa-fw me-2">
+      </i>
+      Task Details
+     </a>
+    </nav>
+   </aside>
+   <main class="main-content">
+    <nav aria-label="breadcrumb">
+     <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+       <a href="./dashboard_page.html">
+        Home
+       </a>
+      </li>
+      <li aria-current="page" class="breadcrumb-item active">
+       Create Task
+      </li>
+     </ol>
+    </nav>
+    <div class="container-fluid px-0">
+     <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="">
+       <h2>
+        Create New Task
+       </h2>
+       <p class="text-muted">
+        Fill out the form below to add a new task to your project.
+       </p>
+      </div>
+     </div>
+     <div class="card fade-in">
+      <div class="card-body p-lg-5">
+       <div class="row align-items-center">
+        <div class="col-lg-7">
+         <form id="createTaskForm" novalidate="">
+          <fieldset>
+           <legend class="h5 mb-4 border-bottom pb-2">
+            Task Details
+           </legend>
+           <div class="mb-3">
+            <label class="form-label" for="taskTitle">
+             Task Title
+             <span class="text-danger">
+              *
+             </span>
+            </label>
+            <input class="form-control" id="taskTitle" placeholder="e.g., Design new landing page mockups" required="" type="text"/>
+           </div>
+           <div class="mb-4">
+            <label class="form-label" for="taskDescription">
+             Description
+            </label>
+            <textarea class="form-control" id="taskDescription" placeholder="Provide a detailed description of the task..." rows="4"></textarea>
+           </div>
+          </fieldset>
+          <fieldset class="mt-4">
+           <legend class="h5 mb-4 border-bottom pb-2">
+            Metadata
+           </legend>
+           <div class="row">
+            <div class="col-md-6 mb-3">
+             <label class="form-label" for="assignee">
+              Assignee
+             </label>
+             <select class="form-select" id="assignee">
+              <option disabled="" selected="" value="">
+               Select a team member
+              </option>
+              <option value="1">
+               Alex Johnson
+              </option>
+              <option value="2">
+               Samantha Brown
+              </option>
+              <option value="3">
+               Chris Lee
+              </option>
+              <option value="4">
+               Patricia Williams
+              </option>
+             </select>
+            </div>
+            <div class="col-md-6 mb-3">
+             <label class="form-label" for="dueDate">
+              Due Date
+              <span class="text-danger">
+               *
+              </span>
+             </label>
+             <input class="form-control" id="dueDate" required="" type="date"/>
+            </div>
+            <div class="col-md-6 mb-3">
+             <label class="form-label" for="priority">
+              Priority
+             </label>
+             <select class="form-select" id="priority">
+              <option value="3">
+               Low
+              </option>
+              <option selected="" value="2">
+               Medium
+              </option>
+              <option value="1">
+               High
+              </option>
+             </select>
+            </div>
+           </div>
+          </fieldset>
+          <fieldset class="mt-4">
+           <legend class="h5 mb-4 border-bottom pb-2">
+            Attachments
+           </legend>
+           <div class="mb-3">
+            <div class="file-drop-area">
+             <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-2">
+             </i>
+             <span class="file-message">
+              Drag &amp; drop files here, or click to select files
+             </span>
+             <input class="file-input" id="fileUpload" multiple="" type="file"/>
+            </div>
+           </div>
+           <div class="list-group" id="stagedFilesList">
+           </div>
+          </fieldset>
+          <div class="d-flex justify-content-end align-items-center gap-2 mt-5">
+           <button class="btn btn-outline-secondary" id="cancelButton" type="button">
+            Cancel
+           </button>
+           <button class="btn btn-primary" id="createTaskButton" type="submit">
+            <i class="fas fa-plus me-2">
+            </i>
+            Create Task
+           </button>
+          </div>
+         </form>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block text-center">
+         <img alt="Task Creation Illustration" class="img-fluid p-4" onerror="this.onerror=null;this.src='https://picsum.photos/seed/flowtask-illust/600/400';" src="assets/illustration_for_task_creation_3_b8314468.png"/>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+   <footer class="info-bar">
+    <span class="me-3">
+     Page: create_task.html
+    </span>
+    <span>
+     Status: Ready
+    </span>
+   </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <script>
+   // Set minimum date for the date picker to today function setMinDate() { const today = new Date().toISOString().split('T')[0]; document.getElementById('dueDate').setAttribute('min', today); } // Handle file uploads and display staged files function handleFileUpload() { const fileInput = document.getElementById('fileUpload'); const stagedFilesList = document.getElementById('stagedFilesList'); const dropArea = document.querySelector('.file-drop-area'); fileInput.addEventListener('change', () => displayFiles(fileInput.files)); dropArea.addEventListener('dragover', (e) => { e.preventDefault(); dropArea.classList.add('is-dragover'); }); dropArea.addEventListener('dragleave', () => { dropArea.classList.remove('is-dragover'); }); dropArea.addEventListener('drop', (e) => { e.preventDefault(); dropArea.classList.remove('is-dragover'); if (e.dataTransfer.files.length) { fileInput.files = e.dataTransfer.files; displayFiles(fileInput.files); } }); function displayFiles(files) { stagedFilesList.innerHTML = ''; if (!files.length) return; for (const file of files) { const fileItem = document.createElement('div'); fileItem.className = 'list-group-item list-group-item-action d-flex justify-content-between align-items-center'; fileItem.innerHTML = `<span><i class="far fa-file-alt me-2"></i>${file.name}</span><button type="button" class="btn-close" aria-label="Remove file"></button>`; stagedFilesList.appendChild(fileItem); fileItem.querySelector('.btn-close').addEventListener('click', () => { fileItem.remove(); // In a real app, you'd need to update the FileList object which is immutable. // This simple removal is for UI demonstration. }); } } } // Form submission logic function handleFormSubmission() { const form = document.getElementById('createTaskForm'); const createButton = document.getElementById('createTaskButton'); form.addEventListener('submit', function(event) { event.preventDefault(); event.stopPropagation(); const originalButtonHtml = createButton.innerHTML; if (!form.checkValidity()) { form.classList.add('was-validated'); Swal.fire({ icon: 'error', title: 'Oops...', text: 'Please fill in all required fields correctly.', }); return; } // Show loading state createButton.disabled = true; createButton.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Creating...`; // Simulate API call setTimeout(() => { Swal.fire({ icon: 'success', title: 'Task Created!', text: 'The new task has been added successfully.', showConfirmButton: false, timer: 1500 }).then(() => { window.location.href = './task_list.html'; }); // Restore button on success (though we redirect) createButton.disabled = false; createButton.innerHTML = originalButtonHtml; }, 1500); }); } // Cancel button logic function handleCancel() { const cancelButton = document.getElementById('cancelButton'); cancelButton.addEventListener('click', () => { Swal.fire({ title: 'Are you sure?', text: "You won't be able to recover this information!", icon: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Yes, discard it!', cancelButtonText: 'No, keep editing' }).then((result) => { if (result.isConfirmed) { window.location.href = './task_list.html'; } }); }); } // Initialize all scripts on DOM content loaded document.addEventListener('DOMContentLoaded', () => { setMinDate(); handleFileUpload(); handleFormSubmission(); handleCancel(); });
+  </script>
+ </body>
+</html>

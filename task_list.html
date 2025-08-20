@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Task List - FlowTask
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="task_list.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="app-container">
+   <header class="top-nav">
+    <a class="navbar-brand" href="./dashboard_page.html">
+     <img alt="FlowTask Logo" src="https://data-smith.ai/wp-content/uploads/2025/01/logo_transparent_background.png" style="height: 40px;"/>
+    </a>
+    <div class="d-flex align-items-center">
+     <div class="dropdown">
+      <a aria-expanded="false" class="d-flex align-items-center text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownUser">
+       <img alt="User Avatar" class="rounded-circle me-2" onerror="this.onerror=null; this.src='https://picsum.photos/32/32';" src="https://picsum.photos/seed/user/32/32"/>
+       <span class="d-none d-sm-inline">
+        Admin User
+       </span>
+      </a>
+      <ul aria-labelledby="dropdownUser" class="dropdown-menu dropdown-menu-end text-small shadow">
+       <li>
+        <a class="dropdown-item" href="#">
+         Profile
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="#">
+         Settings
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./login_page.html">
+         Sign out
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </header>
+   <aside class="sidebar">
+    <div class="sidebar-sticky">
+     <div class="text-center mb-4">
+      <a href="./dashboard_page.html">
+       <img alt="FlowTask Logo" src="https://data-smith.ai/wp-content/uploads/2025/01/logo_transparent_background.png" style="height: 45px;"/>
+      </a>
+      <h5 class="mt-2">
+       FlowTask
+      </h5>
+     </div>
+     <ul class="nav flex-column">
+      <li class="nav-item">
+       <a class="nav-link" href="./dashboard_page.html">
+        <i class="fa-solid fa-tachometer-alt fa-fw me-2">
+        </i>
+        Dashboard
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link active" href="./task_list.html">
+        <i class="fa-solid fa-list-check fa-fw me-2">
+        </i>
+        Tasks
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="./create_task.html">
+        <i class="fa-solid fa-plus-circle fa-fw me-2">
+        </i>
+        Create Task
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#">
+        <i class="fa-solid fa-chart-line fa-fw me-2">
+        </i>
+        Reports
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#">
+        <i class="fa-solid fa-users fa-fw me-2">
+        </i>
+        Teams
+       </a>
+      </li>
+     </ul>
+    </div>
+   </aside>
+   <main class="main-content fade-in">
+    <nav aria-label="breadcrumb">
+     <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+       <a href="./dashboard_page.html">
+        Home
+       </a>
+      </li>
+      <li aria-current="page" class="breadcrumb-item active">
+       Task List
+      </li>
+     </ol>
+    </nav>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+     <h1 class="h2">
+      Task List
+     </h1>
+     <a class="btn btn-primary" href="./create_task.html">
+      <i class="fa-solid fa-plus me-2">
+      </i>
+      Create New Task
+     </a>
+    </div>
+    <div class="card mb-4">
+     <div class="card-body">
+      <div class="TaskListControls">
+       <div class="input-group TaskSearchInput">
+        <span class="input-group-text" id="search-addon">
+         <i class="fa-solid fa-search">
+         </i>
+        </span>
+        <input aria-describedby="search-addon" aria-label="Search tasks" class="form-control" placeholder="Search tasks by title or keyword..." type="text"/>
+       </div>
+       <select aria-label="Filter by status" class="form-select">
+        <option selected="">
+         All Statuses
+        </option>
+        <option value="1">
+         Assigned
+        </option>
+        <option value="2">
+         In Progress
+        </option>
+        <option value="3">
+         On Hold
+        </option>
+        <option value="4">
+         Completed
+        </option>
+        <option value="5">
+         Overdue
+        </option>
+       </select>
+       <select aria-label="Filter by assignee" class="form-select">
+        <option selected="">
+         All Assignees
+        </option>
+        <option value="1">
+         Alex Johnson
+        </option>
+        <option value="2">
+         Maria Garcia
+        </option>
+        <option value="3">
+         James Smith
+        </option>
+        <option value="4">
+         Unassigned
+        </option>
+       </select>
+       <select aria-label="Filter by priority" class="form-select">
+        <option selected="">
+         All Priorities
+        </option>
+        <option value="1">
+         High
+        </option>
+        <option value="2">
+         Medium
+        </option>
+        <option value="3">
+         Low
+        </option>
+       </select>
+       <select aria-label="Sort by" class="form-select">
+        <option selected="">
+         Sort by: Due Date
+        </option>
+        <option value="1">
+         Sort by: Priority
+        </option>
+        <option value="2">
+         Sort by: Creation Date
+        </option>
+       </select>
+      </div>
+     </div>
+    </div>
+    <div class="card">
+     <div class="card-body p-0">
+      <div class="table-responsive">
+       <table class="table table-hover table-vcenter mb-0">
+        <thead>
+         <tr>
+          <th>
+           Task Title
+          </th>
+          <th>
+           Assignee
+          </th>
+          <th>
+           Status
+          </th>
+          <th>
+           Priority
+          </th>
+          <th>
+           Due Date
+          </th>
+          <th class="text-center">
+           Actions
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           <a class="text-decoration-none text-body fw-bold" href="./task_details.html">
+            Design new dashboard layout
+           </a>
+           <div class="text-muted small">
+            Update UI mockups for the main overview
+           </div>
+          </td>
+          <td>
+           <div class="d-flex align-items-center">
+            <img class="avatar me-2" onerror="this.onerror=null; this.src='https://picsum.photos/32';" src="https://picsum.photos/seed/alex/32/32"/>
+            <span class="fw-medium">
+             Alex Johnson
+            </span>
+           </div>
+          </td>
+          <td>
+           <span class="badge badge-in-progress">
+            In Progress
+           </span>
+          </td>
+          <td>
+           <span class="priority-high">
+            <i class="fa-solid fa-circle me-1">
+            </i>
+            High
+           </span>
+          </td>
+          <td>
+           2025-08-15
+          </td>
+          <td class="text-center">
+           <div class="dropdown">
+            <button aria-expanded="false" class="btn btn-sm btn-ghost" data-bs-toggle="dropdown" type="button">
+             <i class="fa-solid fa-ellipsis-vertical">
+             </i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+             <li>
+              <a class="dropdown-item" href="./task_details.html">
+               View Details
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item" href="#">
+               Edit Task
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item text-danger delete-btn" href="#">
+               Delete Task
+              </a>
+             </li>
+            </ul>
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <a class="text-decoration-none text-body fw-bold" href="./task_details.html">
+            Develop API for user authentication
+           </a>
+           <div class="text-muted small">
+            Implement JWT token-based security
+           </div>
+          </td>
+          <td>
+           <div class="d-flex align-items-center">
+            <img class="avatar me-2" onerror="this.onerror=null; this.src='https://picsum.photos/32';" src="https://picsum.photos/seed/maria/32/32"/>
+            <span class="fw-medium">
+             Maria Garcia
+            </span>
+           </div>
+          </td>
+          <td>
+           <span class="badge badge-assigned">
+            Assigned
+           </span>
+          </td>
+          <td>
+           <span class="priority-high">
+            <i class="fa-solid fa-circle me-1">
+            </i>
+            High
+           </span>
+          </td>
+          <td>
+           2025-08-20
+          </td>
+          <td class="text-center">
+           <div class="dropdown">
+            <button aria-expanded="false" class="btn btn-sm btn-ghost" data-bs-toggle="dropdown" type="button">
+             <i class="fa-solid fa-ellipsis-vertical">
+             </i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+             <li>
+              <a class="dropdown-item" href="./task_details.html">
+               View Details
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item" href="#">
+               Edit Task
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item text-danger delete-btn" href="#">
+               Delete Task
+              </a>
+             </li>
+            </ul>
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <a class="text-decoration-none text-body fw-bold" href="./task_details.html">
+            Fix bug in the reporting module
+           </a>
+           <div class="text-muted small">
+            Data export is failing for large datasets
+           </div>
+          </td>
+          <td>
+           <div class="d-flex align-items-center">
+            <img class="avatar me-2" onerror="this.onerror=null; this.src='https://picsum.photos/32';" src="https://picsum.photos/seed/james/32/32"/>
+            <span class="fw-medium">
+             James Smith
+            </span>
+           </div>
+          </td>
+          <td>
+           <span class="badge badge-completed">
+            Completed
+           </span>
+          </td>
+          <td>
+           <span class="priority-medium">
+            <i class="fa-solid fa-circle me-1">
+            </i>
+            Medium
+           </span>
+          </td>
+          <td>
+           2025-07-28
+          </td>
+          <td class="text-center">
+           <div class="dropdown">
+            <button aria-expanded="false" class="btn btn-sm btn-ghost" data-bs-toggle="dropdown" type="button">
+             <i class="fa-solid fa-ellipsis-vertical">
+             </i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+             <li>
+              <a class="dropdown-item" href="./task_details.html">
+               View Details
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item" href="#">
+               Edit Task
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item text-danger delete-btn" href="#">
+               Delete Task
+              </a>
+             </li>
+            </ul>
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <a class="text-decoration-none text-body fw-bold" href="./task_details.html">
+            Conduct user acceptance testing (UAT)
+           </a>
+           <div class="text-muted small">
+            Waiting for feedback from the product team
+           </div>
+          </td>
+          <td>
+           <div class="d-flex align-items-center">
+            <img class="avatar me-2" onerror="this.onerror=null; this.src='https://picsum.photos/32';" src="https://picsum.photos/seed/alex/32/32"/>
+            <span class="fw-medium">
+             Alex Johnson
+            </span>
+           </div>
+          </td>
+          <td>
+           <span class="badge badge-on-hold">
+            On Hold
+           </span>
+          </td>
+          <td>
+           <span class="priority-medium">
+            <i class="fa-solid fa-circle me-1">
+            </i>
+            Medium
+           </span>
+          </td>
+          <td>
+           2025-09-01
+          </td>
+          <td class="text-center">
+           <div class="dropdown">
+            <button aria-expanded="false" class="btn btn-sm btn-ghost" data-bs-toggle="dropdown" type="button">
+             <i class="fa-solid fa-ellipsis-vertical">
+             </i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+             <li>
+              <a class="dropdown-item" href="./task_details.html">
+               View Details
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item" href="#">
+               Edit Task
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item text-danger delete-btn" href="#">
+               Delete Task
+              </a>
+             </li>
+            </ul>
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <a class="text-decoration-none text-body fw-bold" href="./task_details.html">
+            Update project documentation
+           </a>
+           <div class="text-muted small">
+            API endpoints documentation is outdated
+           </div>
+          </td>
+          <td>
+           <div class="d-flex align-items-center">
+            <img class="avatar me-2" onerror="this.onerror=null; this.src='https://picsum.photos/32';" src="https://picsum.photos/seed/maria/32/32"/>
+            <span class="fw-medium">
+             Maria Garcia
+            </span>
+           </div>
+          </td>
+          <td>
+           <span class="badge badge-assigned">
+            Assigned
+           </span>
+          </td>
+          <td>
+           <span class="priority-low">
+            <i class="fa-solid fa-circle me-1">
+            </i>
+            Low
+           </span>
+          </td>
+          <td>
+           2025-09-10
+          </td>
+          <td class="text-center">
+           <div class="dropdown">
+            <button aria-expanded="false" class="btn btn-sm btn-ghost" data-bs-toggle="dropdown" type="button">
+             <i class="fa-solid fa-ellipsis-vertical">
+             </i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+             <li>
+              <a class="dropdown-item" href="./task_details.html">
+               View Details
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item" href="#">
+               Edit Task
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item text-danger delete-btn" href="#">
+               Delete Task
+              </a>
+             </li>
+            </ul>
+           </div>
+          </td>
+         </tr>
+         <tr class="table-danger">
+          <td>
+           <a class="text-decoration-none text-body fw-bold" href="./task_details.html">
+            Prepare sprint review presentation
+           </a>
+           <div class="text-muted small">
+            Review of accomplishments for Sprint 3
+           </div>
+          </td>
+          <td>
+           <div class="d-flex align-items-center">
+            <img class="avatar me-2" onerror="this.onerror=null; this.src='https://picsum.photos/32';" src="https://picsum.photos/seed/james/32/32"/>
+            <span class="fw-medium">
+             James Smith
+            </span>
+           </div>
+          </td>
+          <td>
+           <span class="badge badge-overdue">
+            Overdue
+           </span>
+          </td>
+          <td>
+           <span class="priority-high">
+            <i class="fa-solid fa-circle me-1">
+            </i>
+            High
+           </span>
+          </td>
+          <td>
+           <span class="text-danger fw-bold">
+            2025-07-25
+           </span>
+           <i class="fa-solid fa-triangle-exclamation text-danger">
+           </i>
+          </td>
+          <td class="text-center">
+           <div class="dropdown">
+            <button aria-expanded="false" class="btn btn-sm btn-ghost" data-bs-toggle="dropdown" type="button">
+             <i class="fa-solid fa-ellipsis-vertical">
+             </i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+             <li>
+              <a class="dropdown-item" href="./task_details.html">
+               View Details
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item" href="#">
+               Edit Task
+              </a>
+             </li>
+             <li>
+              <a class="dropdown-item text-danger delete-btn" href="#">
+               Delete Task
+              </a>
+             </li>
+            </ul>
+           </div>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="card-footer d-flex justify-content-between align-items-center">
+      <span class="text-muted">
+       Showing 1 to 6 of 57 tasks
+      </span>
+      <nav aria-label="Task list navigation">
+       <ul class="pagination mb-0">
+        _item disabled"&gt;
+        <a aria-disabled="true" class="page-link" href="#" tabindex="-1">
+         Previous
+        </a>
+        <li aria-current="page" class="page-item active">
+         <a class="page-link" href="#">
+          1
+         </a>
+        </li>
+        <li class="page-item">
+         <a class="page-link" href="#">
+          2
+         </a>
+        </li>
+        <li class="page-item">
+         <a class="page-link" href="#">
+          3
+         </a>
+        </li>
+        <li class="page-item">
+         <a class="page-link" href="#">
+          Next
+         </a>
+        </li>
+       </ul>
+      </nav>
+     </div>
+    </div>
+   </main>
+   <footer class="info-bar">
+    <div class="d-flex justify-content-between">
+     <span>
+      v1.0.0-beta
+     </span>
+     <span>
+      Last sync: Just now
+     </span>
+     <span>
+      Env: Production
+     </span>
+    </div>
+   </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js">
+  </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#dc3545',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Deleted!', 'The task has been deleted.', 'success')
+                }
+            })
+        });
+    });
+});
+  </script>
+ </body>
+</html>

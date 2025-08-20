@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   FlowTask - Login
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="login_page.css" rel="stylesheet"/>
+ </head>
+ <body class="login-page-body">
+  <div class="login-container">
+   <div class="card login-card shadow-lg">
+    <div class="card-body p-lg-5">
+     <div class="text-center mb-4">
+      <img alt="FlowTask Logo" class="login-logo" onerror="this.onerror=null;this.src='https://picsum.photos/seed/flowtasklogo/150/40';" src="https://data-smith.ai/wp-content/uploads/2025/01/logo_transparent_background.png"/>
+     </div>
+     <h1 class="h3 text-center mb-1 fw-bold">
+      Welcome
+     </h1>
+     <p class="text-center text-muted mb-4">
+      Log in to your FlowTask account.
+     </p>
+     <form id="loginForm" novalidate="">
+      <div class="alert alert-danger d-none" id="errorMessage" role="alert">
+      </div>
+      <div class="mb-3">
+       <label class="form-label fw-semibold" for="emailInput">
+        Email Address
+       </label>
+       <input class="form-control form-control-lg" id="emailInput" placeholder="e.g., user@example.com" required="" type="email"/>
+      </div>
+      <div class="mb-3">
+       <label class="form-label fw-semibold" for="passwordInput">
+        Password
+       </label>
+       <div class="input-group">
+        <input class="form-control form-control-lg" id="passwordInput" placeholder="Enter your password" required="" type="password"/>
+        <button class="btn btn-outline-secondary" id="togglePassword" type="button">
+         <i class="fa-solid fa-eye">
+         </i>
+        </button>
+       </div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+       <div class="form-check">
+        <input class="form-check-input" id="rememberMe" type="checkbox"/>
+        <label class="form-check-label" for="rememberMe">
+         Remember me
+        </label>
+       </div>
+       <a class="form-text text-decoration-none" href="#">
+        Forgot password?
+       </a>
+      </div>
+      <div class="d-grid">
+       <button class="btn btn-primary btn-lg fw-bold" id="loginButton" type="submit">
+        <span class="btn-text">
+         Log In
+        </span>
+        <span aria-hidden="true" class="spinner-border spinner-border-sm d-none" role="status">
+        </span>
+       </button>
+      </div>
+     </form>
+    </div>
+   </div>
+   <div class="card mt-4 test-credentials">
+    <div class="card-body">
+     <h6 class="card-title text-muted fw-bold">
+      <i class="fa-solid fa-flask-vial me-2">
+      </i>
+      Test Credentials
+     </h6>
+     <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+       <strong class="text-primary">
+        User:
+       </strong>
+       user@flowtask.com
+       <br/>
+       <strong class="text-primary">
+        Pass:
+       </strong>
+       password123
+       <br/>
+       <small>
+        (Redirects to Dashboard)
+       </small>
+      </li>
+      <li class="list-group-item">
+       <strong class="text-secondary">
+        Manager:
+       </strong>
+       manager@flowtask.com
+       <br/>
+       <strong class="text-secondary">
+        Pass:
+       </strong>
+       password456
+       <br/>
+       <small>
+        (Redirects to Task List)
+       </small>
+      </li>
+      <li class="list-group-item">
+       <strong class="text-danger">
+        Admin:
+       </strong>
+       admin@flowtask.com
+       <br/>
+       <strong class="text-danger">
+        Pass:
+       </strong>
+       password789
+       <br/>
+       <small>
+        (Redirects to Task List)
+       </small>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('emailInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const loginButton = document.getElementById('loginButton');
+    const errorMessageDiv = document.getElementById('errorMessage');
+    const togglePassword = document.getElementById('togglePassword');
+    const testUsers = {
+        'user@flowtask.com': {
+            password: 'password123',
+            redirect: './dashboard_page.html'
+        },
+        'manager@flowtask.com': {
+            password: 'password456',
+            redirect: './task_list.html'
+        },
+        'admin@flowtask.com': {
+            password: 'password789',
+            redirect: './task_list.html'
+        }
+    };
+    togglePassword.addEventListener('click', () => {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        togglePassword.querySelector('i').classList.toggle('fa-eye');
+        togglePassword.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        errorMessageDiv.classList.add('d-none');
+        loginButton.disabled = true;
+        loginButton.querySelector('.btn-text').classList.add('d-none');
+        loginButton.querySelector('.spinner-border').classList.remove('d-none');
+        setTimeout(() => {
+            const user = testUsers[email];
+            if (user && user.password === password) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Successful!',
+                    text: 'You will be redirected shortly.',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                }).then(() => {
+                    window.location.href = user.redirect;
+                });
+            } else {
+                errorMessageDiv.textContent = 'Invalid credentials. Please try again.';
+                errorMessageDiv.classList.remove('d-none');
+                loginButton.disabled = false;
+                loginButton.querySelector('.btn-text').classList.remove('d-none');
+                loginButton.querySelector('.spinner-border').classList.add('d-none');
+            }
+        }, 1000);
+    });
+});
+  </script>
+ </body>
+</html>
